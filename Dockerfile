@@ -1,5 +1,5 @@
 # 기본 이미지 설정
-FROM openjdk:17
+FROM eclipse-temurin:21-jre
 
 # 이 Dockerfile 내부에서만 사용될 변수 설정
 ARG JAR_FILE=build/libs/*.jar

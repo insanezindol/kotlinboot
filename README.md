@@ -7,7 +7,7 @@ Kotlin과 Spring Boot를 활용한 마이크로서비스 애플리케이션입�
 ## 🚀 주요 특징
 
 -   **Kotlin 언어**: 간결하고 표현력이 뛰어난 JVM 언어
--   **Spring Boot 3.2.3**: 최신 스프링 부트 프레임워크
+-   **Spring Boot 4.1.1**: 최신 스프링 부트 프레임워크
 -   **JPA/Hibernate**: 데이터베이스 ORM
 -   **Redis**: 인메모리 캐싱 시스템
 -   **Apache Kafka**: 메시지 큐잉 시스템
@@ -19,10 +19,10 @@ Kotlin과 Spring Boot를 활용한 마이크로서비스 애플리케이션입�
 
 ### Backend
 
--   **Language**: Kotlin 1.9.22
--   **Framework**: Spring Boot 3.2.3
--   **JVM**: OpenJDK 17
--   **Build Tool**: Gradle 8.x (Kotlin DSL)
+-   **Language**: Kotlin 2.4.0
+-   **Framework**: Spring Boot 4.1.1
+-   **JVM**: OpenJDK 21
+-   **Build Tool**: Gradle 9.5.1 (Kotlin DSL)
 
 ### Database & Cache
 
@@ -77,7 +77,7 @@ src/
 
 ### 사전 요구사항
 
--   **JDK 17** 이상
+-   **JDK 21** 이상
 -   **Docker & Docker Compose**
 -   **Git**
 

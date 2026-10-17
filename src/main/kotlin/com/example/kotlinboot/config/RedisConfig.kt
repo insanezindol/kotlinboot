@@ -10,9 +10,11 @@ import org.springframework.data.redis.connection.RedisStandaloneConfiguration
 import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory
 import org.springframework.data.redis.core.RedisTemplate
-import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer
+import org.springframework.data.redis.serializer.GenericJacksonJsonRedisSerializer
 import org.springframework.data.redis.serializer.RedisSerializationContext
 import org.springframework.data.redis.serializer.StringRedisSerializer
+import tools.jackson.databind.jsontype.BasicPolymorphicTypeValidator
+import tools.jackson.module.kotlin.kotlinModule
 import java.time.Duration
 
 @Configuration
@@ -59,7 +61,15 @@ class RedisConfig(
             )
             .serializeValuesWith(
                 RedisSerializationContext.SerializationPair.fromSerializer(
-                    GenericJackson2JsonRedisSerializer()
+                    GenericJacksonJsonRedisSerializer.builder()
+                        .enableDefaultTyping(
+                            BasicPolymorphicTypeValidator.builder()
+                                .allowIfSubType("com.example.kotlinboot.")
+                                .allowIfSubType("java.util.")
+                                .build()
+                        )
+                        .customize { it.addModule(kotlinModule()) }
+                        .build()
                 )
             ) // Serialize 설정
             .entryTtl(Duration.ofMinutes(1)) // 캐시 기본 ttl 1분 설정
